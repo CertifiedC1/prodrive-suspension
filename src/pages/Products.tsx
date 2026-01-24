@@ -2,6 +2,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Eye, X } from 'lucide-react';
 
+// Import product images
+import controlArm1Img from '@/assets/products/control-arm-1.jpg';
+import controlArm2Img from '@/assets/products/control-arm-2.jpg';
+import swayBarLinksImg from '@/assets/products/sway-bar-links.jpg';
+import cragsmanShocksImg from '@/assets/products/cragsman-shocks.jpg';
+import coilSpringsImg from '@/assets/products/coil-springs.jpg';
+import adjustableLinksImg from '@/assets/products/adjustable-links.jpg';
+import cragsmanSetImg from '@/assets/products/cragsman-set.jpg';
+
 interface Product {
   id: number;
   title: string;
@@ -18,92 +27,107 @@ const Products = () => {
   const products: Product[] = [
     {
       id: 1,
-      title: 'Heavy Duty Coilover Kit',
+      title: 'Upper Control Arms',
       description:
-        'Premium heavy-duty coilover suspension system designed for Land Cruiser 70, 80, and 100 series. Built to handle the toughest African terrain.',
-      price: 'KES 85,000',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
-      category: 'Coilovers',
+        'Heavy-duty upper control arms designed for Land Cruiser and 4x4 vehicles. Precision engineered for improved suspension geometry and articulation.',
+      price: 'KES 35,000',
+      image: controlArm1Img,
+      category: 'Control Arms',
       features: [
-        'Heavy-duty construction',
-        'Adjustable ride height',
-        'Improved handling',
+        'Heavy-duty steel construction',
+        'Improved suspension geometry',
+        'Enhanced off-road articulation',
         'Land Cruiser compatible',
       ],
     },
     {
       id: 2,
-      title: 'Nitrogas Shock Absorbers',
+      title: 'CRAGSMAN Nitrogas Shocks',
       description:
-        'High-performance nitrogen gas shocks that provide superior damping and consistent performance in all conditions.',
+        'Premium CRAGSMAN nitrogen gas shock absorbers. 1 Year / 40,000km warranty. Superior damping for all terrain conditions.',
       price: 'KES 45,000',
-      image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&h=400&fit=crop',
+      image: cragsmanShocksImg,
       category: 'Shock Absorbers',
       features: [
         'Nitrogen gas charged',
-        'Fade-resistant',
+        '1 Year / 40,000km warranty',
+        'Chrome piston rod',
         'All-terrain performance',
-        'Long service life',
       ],
     },
     {
       id: 3,
-      title: 'Suspension Control Arms',
+      title: 'Adjustable Sway Bar Links',
       description:
-        'Precision-engineered control arms for improved wheel alignment and suspension geometry. Essential for serious off-roaders.',
-      price: 'KES 35,000',
-      image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop',
-      category: 'Control Components',
-      features: [
-        'CNC machined',
-        'Improved articulation',
-        'Heavy-duty bushings',
-        'Precise geometry',
-      ],
-    },
-    {
-      id: 4,
-      title: 'Adjustable Panhard Rods',
-      description:
-        'Adjustable panhard rods to correct axle centering after lift installation. Critical for proper handling.',
-      price: 'KES 25,000',
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop',
+        'High-quality adjustable sway bar links with polyurethane bushings. Perfect for lifted vehicles requiring precise alignment.',
+      price: 'KES 18,000',
+      image: swayBarLinksImg,
       category: 'Adjustable Links',
       features: [
-        'Fully adjustable',
-        'Corrects axle alignment',
-        'Strong construction',
+        'Fully adjustable length',
+        'Heavy-duty construction',
+        'Polyurethane bushings',
         'Easy installation',
       ],
     },
     {
-      id: 5,
-      title: 'CRAGSMAN Complete Lift Kit',
+      id: 4,
+      title: 'CRAGSMAN Coil Springs',
       description:
-        'Premium CRAGSMAN suspension lift kit including shocks, springs, and all necessary hardware. The ultimate upgrade.',
-      price: 'KES 150,000',
-      image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop',
-      category: 'Complete Kits',
+        'Premium CRAGSMAN coil springs in signature yellow. Designed for heavy loads and rough terrain with progressive rate technology.',
+      price: 'KES 28,000',
+      image: coilSpringsImg,
+      category: 'Springs',
       features: [
-        'Complete package',
-        '2-4 inch lift options',
-        'All hardware included',
-        'Professional grade',
+        'Progressive spring rate',
+        'Heavy-duty construction',
+        'Increased load capacity',
+        'CRAGSMAN quality',
+      ],
+    },
+    {
+      id: 5,
+      title: '4x4 Upper Control Arms Pro',
+      description:
+        'Professional-grade upper control arms with uniball joint for maximum performance. Perfect for serious off-roaders.',
+      price: 'KES 42,000',
+      image: controlArm2Img,
+      category: 'Control Arms',
+      features: [
+        'Uniball joint design',
+        'Maximum articulation',
+        'Heavy-duty bushings',
+        'Track-tested performance',
       ],
     },
     {
       id: 6,
-      title: 'Heavy Duty Leaf Springs',
+      title: 'Performance End Links',
       description:
-        'Reinforced leaf springs designed for heavy loads and rough terrain. Perfect for overlanding and work vehicles.',
-      price: 'KES 55,000',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
-      category: 'Springs',
+        'High-performance adjustable end links with heavy-duty ball joints. Available in various lengths for custom setups.',
+      price: 'KES 15,000',
+      image: adjustableLinksImg,
+      category: 'Adjustable Links',
       features: [
-        'Increased load capacity',
-        'Progressive rate',
-        'Rust-resistant coating',
+        'Precision ball joints',
+        'Adjustable length',
         'Heavy-duty construction',
+        'Multiple color options',
+      ],
+    },
+    {
+      id: 7,
+      title: 'CRAGSMAN Shock Set (4pc)',
+      description:
+        'Complete set of 4 CRAGSMAN shock absorbers. Front and rear matched set for balanced performance across all terrains.',
+      price: 'KES 85,000',
+      image: cragsmanSetImg,
+      category: 'Complete Kits',
+      features: [
+        '4 shocks included',
+        'Front & rear matched set',
+        'CRAGSMAN quality',
+        'Complete hardware kit',
       ],
     },
   ];
@@ -159,7 +183,7 @@ const Products = () => {
           {/* Products Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="card-product">
+              <div key={product.id} className="card-product group">
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img
                     src={product.image}

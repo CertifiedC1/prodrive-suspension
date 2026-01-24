@@ -1,4 +1,8 @@
-import { Target, Eye, Users, Award, CheckCircle } from 'lucide-react';
+import { Target, Eye, Award, CheckCircle, Users } from 'lucide-react';
+import coilSpringsImg from '@/assets/products/coil-springs.jpg';
+import cragsmanShocksImg from '@/assets/products/cragsman-shocks.jpg';
+import controlArm1Img from '@/assets/products/control-arm-1.jpg';
+import adjustableLinksImg from '@/assets/products/adjustable-links.jpg';
 
 const About = () => {
   const values = [
@@ -16,27 +20,6 @@ const About = () => {
       icon: CheckCircle,
       title: 'Expertise',
       description: 'Years of hands-on experience with 4x4 and Land Cruiser suspension systems.',
-    },
-  ];
-
-  const teamMembers = [
-    {
-      name: 'Isaac Irungu',
-      role: 'Founder & CEO',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
-      description: 'Passionate about 4x4 vehicles and African adventures for over 10 years.',
-    },
-    {
-      name: 'Technical Team',
-      role: 'Suspension Experts',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop',
-      description: 'Certified professionals specializing in Land Cruiser and off-road systems.',
-    },
-    {
-      name: 'Support Team',
-      role: 'Customer Service',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop',
-      description: 'Dedicated to ensuring your experience with ProDrive is exceptional.',
     },
   ];
 
@@ -91,23 +74,23 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=500&fit=crop"
-                alt="Off-road vehicle"
+                src={coilSpringsImg}
+                alt="CRAGSMAN Coil Springs"
                 className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop"
-                alt="Suspension work"
+                src={cragsmanShocksImg}
+                alt="CRAGSMAN Shock Absorbers"
                 className="rounded-xl shadow-lg w-full h-64 object-cover mt-8"
               />
               <img
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=500&fit=crop"
-                alt="Quality parts"
+                src={controlArm1Img}
+                alt="Suspension Control Arms"
                 className="rounded-xl shadow-lg w-full h-64 object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=500&fit=crop"
-                alt="4x4 adventure"
+                src={adjustableLinksImg}
+                alt="Adjustable Suspension Links"
                 className="rounded-xl shadow-lg w-full h-64 object-cover mt-8"
               />
             </div>
@@ -171,36 +154,32 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Founder Section */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-              Our Team
+              Leadership
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mt-4">
-              Meet the ProDrive Family 🇰🇪
+              Meet the Founder 🇰🇪
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <div
-                key={member.name}
-                className="bg-secondary-foreground/5 rounded-xl p-6 text-center group hover:bg-secondary-foreground/10 transition-all duration-300"
-              >
-                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-primary/20 group-hover:ring-primary transition-all duration-300">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-secondary-foreground">{member.name}</h3>
-                <p className="text-primary font-medium mb-4">{member.role}</p>
-                <p className="text-muted-foreground text-sm">{member.description}</p>
+          <div className="max-w-lg mx-auto">
+            <div className="bg-secondary-foreground/5 rounded-xl p-8 text-center">
+              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-primary/30 bg-primary/20 flex items-center justify-center">
+                <span className="text-4xl font-bold text-primary">II</span>
               </div>
-            ))}
+              <h3 className="text-2xl font-bold text-secondary-foreground">Isaac Irungu</h3>
+              <p className="text-primary font-medium mb-4">Founder & CEO</p>
+              <p className="text-muted-foreground">
+                Passionate about 4x4 vehicles and African off-road adventures for over 10 years. 
+                Isaac founded ProDrive Suspension to bring quality suspension solutions to Kenya's 
+                Land Cruiser and 4x4 community. His hands-on experience and dedication to customer 
+                satisfaction have made ProDrive a trusted name in the industry.
+              </p>
+            </div>
           </div>
         </div>
       </section>
