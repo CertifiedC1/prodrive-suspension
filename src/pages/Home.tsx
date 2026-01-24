@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Wrench, HeartHandshake, ChevronRight } from 'lucide-react';
 
+// Import product images for previews
+import cragsmanShocksImg from '@/assets/products/cragsman-shocks.jpg';
+import coilSpringsImg from '@/assets/products/coil-springs.jpg';
+import controlArm1Img from '@/assets/products/control-arm-1.jpg';
+
 const Home = () => {
   const features = [
     {
@@ -25,17 +30,17 @@ const Home = () => {
 
   const products = [
     {
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
-      title: 'Heavy Duty Coilover',
-      category: 'Suspension',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&h=400&fit=crop',
-      title: 'Nitrogas Shocks',
+      image: cragsmanShocksImg,
+      title: 'CRAGSMAN Shocks',
       category: 'Shock Absorbers',
     },
     {
-      image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop',
+      image: coilSpringsImg,
+      title: 'Coil Springs',
+      category: 'Springs',
+    },
+    {
+      image: controlArm1Img,
       title: 'Control Arms',
       category: 'Components',
     },
@@ -49,7 +54,7 @@ const Home = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1920&h=1080&fit=crop)',
+              'url(https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&h=1080&fit=crop)',
           }}
         >
           <div className="absolute inset-0 hero-overlay" />
@@ -121,7 +126,7 @@ const Home = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&h=600&fit=crop"
                 alt="4x4 vehicle on African terrain"
                 className="rounded-2xl shadow-xl w-full"
               />
@@ -193,7 +198,7 @@ const Home = () => {
               <Link
                 key={product.title}
                 to="/products"
-                className="card-product bg-secondary-foreground/5 overflow-hidden"
+                className="card-product bg-secondary-foreground/5 overflow-hidden group"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
