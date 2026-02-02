@@ -3,6 +3,7 @@ import coilSpringsImg from '@/assets/products/coil-springs.jpg';
 import cragsmanShocksImg from '@/assets/products/cragsman-shocks.jpg';
 import controlArm1Img from '@/assets/products/control-arm-1.jpg';
 import adjustableLinksImg from '@/assets/products/adjustable-links.jpg';
+import isaacProfileImg from '@/assets/isaac-profile.png';
 
 const About = () => {
   const values = [
@@ -28,7 +29,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-6">
               🇰🇪 About ProDrive
             </span>
@@ -47,12 +48,9 @@ const About = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+            <div className="text-center lg:text-left">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
                 Our Story
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
-                From Passion to Profession
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 ProDrive Suspension was born from a deep love for off-road adventures and a
@@ -76,22 +74,22 @@ const About = () => {
               <img
                 src={coilSpringsImg}
                 alt="CRAGSMAN Coil Springs"
-                className="rounded-xl shadow-lg w-full h-64 object-cover"
+                className="rounded-xl shadow-lg w-full h-64 object-cover hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer"
               />
               <img
                 src={cragsmanShocksImg}
                 alt="CRAGSMAN Shock Absorbers"
-                className="rounded-xl shadow-lg w-full h-64 object-cover mt-8"
+                className="rounded-xl shadow-lg w-full h-64 object-cover mt-8 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer"
               />
               <img
                 src={controlArm1Img}
                 alt="Suspension Control Arms"
-                className="rounded-xl shadow-lg w-full h-64 object-cover"
+                className="rounded-xl shadow-lg w-full h-64 object-cover hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer"
               />
               <img
                 src={adjustableLinksImg}
                 alt="Adjustable Suspension Links"
-                className="rounded-xl shadow-lg w-full h-64 object-cover mt-8"
+                className="rounded-xl shadow-lg w-full h-64 object-cover mt-8 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer"
               />
             </div>
           </div>
@@ -102,9 +100,9 @@ const About = () => {
       <section className="section-padding bg-card">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="card-feature">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                <Target size={32} className="text-primary" />
+            <div className="card-feature group hover:scale-[1.02] transition-transform duration-300">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                <Target size={32} className="text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
               <p className="text-muted-foreground text-lg leading-relaxed">
@@ -113,9 +111,9 @@ const About = () => {
                 We aim to be the go-to partner for Land Cruiser owners and off-road adventurers.
               </p>
             </div>
-            <div className="card-feature">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                <Eye size={32} className="text-primary" />
+            <div className="card-feature group hover:scale-[1.02] transition-transform duration-300">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                <Eye size={32} className="text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
               <p className="text-muted-foreground text-lg leading-relaxed">
@@ -142,8 +140,8 @@ const About = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((value) => (
-              <div key={value.title} className="text-center">
-                <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div key={value.title} className="text-center group">
+                <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <value.icon size={40} className="text-primary-foreground" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
@@ -167,14 +165,18 @@ const About = () => {
           </div>
 
           <div className="max-w-lg mx-auto">
-            <div className="bg-secondary-foreground/5 rounded-xl p-8 text-center">
-              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-primary/30 bg-primary/20 flex items-center justify-center">
-                <span className="text-4xl font-bold text-primary">II</span>
+            <div className="bg-secondary-foreground/5 rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-primary/30">
+                <img 
+                  src={isaacProfileImg} 
+                  alt="Isaac Irungu - Founder & CEO" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold text-secondary-foreground">Isaac Irungu</h3>
               <p className="text-primary font-medium mb-4">Founder & CEO</p>
               <p className="text-muted-foreground">
-                Passionate about 4x4 vehicles and African off-road adventures for over 10 years. 
+                Passionate about 4x4 vehicles and African off-road adventures for years. 
                 Isaac founded ProDrive Suspension to bring quality suspension solutions to Kenya's 
                 Land Cruiser and 4x4 community. His hands-on experience and dedication to customer 
                 satisfaction have made ProDrive a trusted name in the industry.

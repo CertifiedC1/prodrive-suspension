@@ -18,7 +18,7 @@ const Home = () => {
       icon: Wrench,
       title: 'Off-Road Expertise',
       description:
-        'Decades of experience in 4x4 and Land Cruiser suspension systems. We know what works in Kenya.',
+        'Years of experience in 4x4 and Land Cruiser suspension systems. We know what works in Kenya.',
     },
     {
       icon: HeartHandshake,
@@ -84,13 +84,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-white/50 rounded-full" />
-          </div>
-        </div>
       </section>
 
       {/* Welcome Section */}
@@ -98,7 +91,7 @@ const Home = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="slide-up">
-              <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+              <span className="text-primary font-bold uppercase tracking-wider text-lg md:text-xl">
                 Welcome to ProDrive
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
@@ -128,12 +121,8 @@ const Home = () => {
               <img
                 src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&h=600&fit=crop"
                 alt="4x4 vehicle on African terrain"
-                className="rounded-2xl shadow-xl w-full"
+                className="rounded-2xl shadow-xl w-full hover:scale-[1.02] transition-transform duration-500"
               />
-              <div className="absolute -bottom-8 -left-8 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg hidden md:block">
-                <div className="text-4xl font-bold">10+</div>
-                <div className="text-sm opacity-90">Years Experience</div>
-              </div>
             </div>
           </div>
         </div>
@@ -235,7 +224,7 @@ const Home = () => {
               Contact Us Now
             </Link>
             <a
-              href="https://wa.me/254700000000"
+              href="https://wa.me/254748418583?text=Hello%20PRODRIVE%20SUSPENSION!%20I'm%20interested%20in%20your%20products."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"

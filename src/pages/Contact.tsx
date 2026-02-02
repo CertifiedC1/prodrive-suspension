@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Instagram, Facebook } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import TikTokIcon from '@/components/icons/TikTokIcon';
 
 const contactSchema = z.object({
   name: z
@@ -113,14 +114,14 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone / WhatsApp',
-      content: '+254 7XX XXX XXX',
-      link: 'tel:+254700000000',
+      content: '+254 748 418 583',
+      link: 'tel:+254748418583',
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@prodrivesuspension.co.ke',
-      link: 'mailto:info@prodrivesuspension.co.ke',
+      content: 'prodrivesuspension@gmail.com',
+      link: 'mailto:prodrivesuspension@gmail.com',
     },
     {
       icon: Clock,
@@ -134,7 +135,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-6">
               🇰🇪 Get In Touch
             </span>
@@ -302,9 +303,9 @@ const Contact = () => {
 
               <div className="space-y-6 mb-10">
                 {contactInfo.map((info) => (
-                  <div key={info.title} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <info.icon size={24} className="text-primary" />
+                  <div key={info.title} className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                      <info.icon size={24} className="text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">{info.title}</h3>
@@ -330,7 +331,7 @@ const Contact = () => {
                 <h3 className="font-semibold text-foreground mb-4">Follow Us</h3>
                 <div className="flex gap-4">
                   <a
-                    href="https://www.instagram.com/prodrive_suspension"
+                    href="https://www.instagram.com/prodrive_suspension?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-primary-foreground hover:scale-110 transition-transform"
@@ -339,7 +340,7 @@ const Contact = () => {
                     <Instagram size={24} />
                   </a>
                   <a
-                    href="https://www.facebook.com/prodrivesuspension"
+                    href="https://www.facebook.com/profile.php?id=61576710055058"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center text-secondary-foreground hover:scale-110 transition-transform"
@@ -348,10 +349,19 @@ const Contact = () => {
                     <Facebook size={24} />
                   </a>
                   <a
-                    href="https://wa.me/254700000000"
+                    href="https://www.tiktok.com/@prodrive_suspension?_t=ZM-907kLtVGXa0&_r=1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-accent-foreground hover:scale-110 transition-transform"
+                    className="w-12 h-12 bg-card rounded-xl flex items-center justify-center text-foreground hover:scale-110 transition-transform"
+                    aria-label="TikTok"
+                  >
+                    <TikTokIcon size={24} />
+                  </a>
+                  <a
+                    href="https://wa.me/254748418583?text=Hello%20PRODRIVE%20SUSPENSION!%20I'm%20interested%20in%20your%20products."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-[#25D366] rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform"
                     aria-label="WhatsApp"
                   >
                     <Phone size={24} />
@@ -360,7 +370,7 @@ const Contact = () => {
               </div>
 
               {/* Map Placeholder */}
-              <div className="bg-card rounded-xl overflow-hidden shadow-lg">
+              <div className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="aspect-video bg-muted flex items-center justify-center">
                   <div className="text-center">
                     <MapPin size={48} className="text-primary mx-auto mb-4" />
@@ -391,10 +401,10 @@ const Contact = () => {
             Chat with us directly on WhatsApp for instant support and quick quotes.
           </p>
           <a
-            href="https://wa.me/254700000000?text=Hello%20ProDrive%20Suspension!%20I%20am%20interested%20in%20your%204x4%20suspension%20products."
+            href="https://wa.me/254748418583?text=Hello%20PRODRIVE%20SUSPENSION!%20I'm%20interested%20in%20your%20products."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-card text-foreground rounded-xl font-bold text-lg hover:opacity-90 transition-colors shadow-lg"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-card text-foreground rounded-xl font-bold text-lg hover:opacity-90 hover:scale-105 transition-all shadow-lg"
           >
             <Phone size={24} />
             Chat on WhatsApp
