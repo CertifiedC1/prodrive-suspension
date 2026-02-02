@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from '@/components/ThemeToggle';
+import logoImg from '@/assets/logo.png';
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -40,9 +42,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <span className="text-primary-foreground font-bold text-xl">P</span>
-            </div>
+            <img 
+              src={logoImg} 
+              alt="ProDrive Suspension Logo" 
+              className="w-12 h-12 rounded-lg object-contain transition-transform duration-300 group-hover:scale-110"
+            />
             <div>
               <span className="text-secondary-foreground font-bold text-xl tracking-tight">
                 ProDrive
@@ -64,16 +68,22 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <div className="ml-4">
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-secondary-foreground hover:text-primary transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-secondary-foreground hover:text-primary transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

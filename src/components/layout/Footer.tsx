@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Phone, MapPin, Mail } from 'lucide-react';
+import TikTokIcon from '@/components/icons/TikTokIcon';
+import logoImg from '@/assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,9 +21,11 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">P</span>
-              </div>
+              <img 
+                src={logoImg} 
+                alt="ProDrive Suspension Logo" 
+                className="w-12 h-12 rounded-lg object-contain"
+              />
               <div>
                 <span className="text-secondary-foreground font-bold text-xl">ProDrive</span>
                 <span className="text-primary font-bold text-xl ml-1">Suspension</span>
@@ -32,7 +36,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/prodrive_suspension"
+                href="https://www.instagram.com/prodrive_suspension?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center
@@ -42,7 +46,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://www.facebook.com/prodrivesuspension"
+                href="https://www.facebook.com/profile.php?id=61576710055058"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center
@@ -52,7 +56,17 @@ const Footer = () => {
                 <Facebook size={20} />
               </a>
               <a
-                href="https://wa.me/254700000000"
+                href="https://www.tiktok.com/@prodrive_suspension?_t=ZM-907kLtVGXa0&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center
+                         hover:bg-primary transition-all duration-300"
+                aria-label="Follow us on TikTok"
+              >
+                <TikTokIcon size={20} />
+              </a>
+              <a
+                href="https://wa.me/254748418583?text=Hello%20PRODRIVE%20SUSPENSION!%20I'm%20interested%20in%20your%20products."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center
@@ -91,20 +105,20 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="tel:+254700000000"
+                  href="tel:+254748418583"
                   className="flex items-start gap-3 text-secondary-foreground/70 hover:text-primary transition-colors text-sm"
                 >
                   <Phone size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span>+254 7XX XXX XXX</span>
+                  <span>+254 748 418 583</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@prodrivesuspension.co.ke"
+                  href="mailto:prodrivesuspension@gmail.com"
                   className="flex items-start gap-3 text-secondary-foreground/70 hover:text-primary transition-colors text-sm"
                 >
                   <Mail size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span>info@prodrivesuspension.co.ke</span>
+                  <span>prodrivesuspension@gmail.com</span>
                 </a>
               </li>
             </ul>
@@ -130,7 +144,7 @@ const Footer = () => {
               © {currentYear} ProDrive Suspension. All rights reserved.
             </p>
             <p className="text-secondary-foreground/50 text-sm">
-              Founder: <span className="text-secondary-foreground/80">Isaac Irungu</span> | Made with ❤️ in Kenya 🇰🇪
+              Designed by <span className="text-primary font-medium">ELIUD NDUNG'U</span>
             </p>
           </div>
         </div>

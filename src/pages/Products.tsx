@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Eye, X } from 'lucide-react';
+import { ShoppingCart, Eye, X, Car } from 'lucide-react';
 
 // Import product images
 import controlArm1Img from '@/assets/products/control-arm-1.jpg';
@@ -10,15 +10,22 @@ import cragsmanShocksImg from '@/assets/products/cragsman-shocks.jpg';
 import coilSpringsImg from '@/assets/products/coil-springs.jpg';
 import adjustableLinksImg from '@/assets/products/adjustable-links.jpg';
 import cragsmanSetImg from '@/assets/products/cragsman-set.jpg';
+import brakeKitBlackImg from '@/assets/products/brake-kit-black.png';
+import brakeKitYellowImg from '@/assets/products/brake-kit-yellow.png';
+import brakeKitBlueImg from '@/assets/products/brake-kit-blue.png';
+import brakeKitRedImg from '@/assets/products/brake-kit-red.png';
+import cragsmanCoilSpringsImg from '@/assets/products/cragsman-coil-springs.png';
 
 interface Product {
   id: number;
   title: string;
   description: string;
   price: string;
+  priceNote?: string;
   image: string;
   category: string;
   features: string[];
+  compatibility?: string[];
 }
 
 const Products = () => {
@@ -27,10 +34,11 @@ const Products = () => {
   const products: Product[] = [
     {
       id: 1,
-      title: 'Upper Control Arms',
+      title: 'Modified Upper Control Arms',
       description:
-        'Heavy-duty upper control arms designed for Land Cruiser and 4x4 vehicles. Precision engineered for improved suspension geometry and articulation.',
-      price: 'KES 35,000',
+        'Heavy-duty modified upper control arms designed for Land Cruiser and 4x4 vehicles. Precision engineered for improved suspension geometry and articulation.',
+      price: 'KES 20,000',
+      priceNote: 'per pair',
       image: controlArm1Img,
       category: 'Control Arms',
       features: [
@@ -39,13 +47,15 @@ const Products = () => {
         'Enhanced off-road articulation',
         'Land Cruiser compatible',
       ],
+      compatibility: ['Landcruiser Prado 120 & 150 series', '4-Runner'],
     },
     {
       id: 2,
-      title: 'CRAGSMAN Nitrogas Shocks',
+      title: 'CRAGSMAN Nitrogas Shocks (Front)',
       description:
-        'Premium CRAGSMAN nitrogen gas shock absorbers. 1 Year / 40,000km warranty. Superior damping for all terrain conditions.',
-      price: 'KES 45,000',
+        'Premium CRAGSMAN nitrogen gas shock absorbers for front suspension. 1 Year / 40,000km warranty. Superior damping for all terrain conditions.',
+      price: 'KES 13,000',
+      priceNote: 'each',
       image: cragsmanShocksImg,
       category: 'Shock Absorbers',
       features: [
@@ -54,13 +64,32 @@ const Products = () => {
         'Chrome piston rod',
         'All-terrain performance',
       ],
+      compatibility: ['Fortuner', 'Landcruiser Prado 120 & 150 series', '4-Runner', 'FJ Cruiser', 'Hilux Vigo & Vevo (front only)'],
     },
     {
       id: 3,
+      title: 'CRAGSMAN Nitrogas Shocks (Rear)',
+      description:
+        'Premium CRAGSMAN nitrogen gas shock absorbers for rear suspension. Designed for heavy loads and rough terrain.',
+      price: 'KES 10,000',
+      priceNote: 'each',
+      image: cragsmanSetImg,
+      category: 'Shock Absorbers',
+      features: [
+        'Nitrogen gas charged',
+        'Heavy load capacity',
+        'Chrome piston rod',
+        'Durability tested',
+      ],
+      compatibility: ['Fortuner', 'Landcruiser Prado 120 & 150 series', '4-Runner', 'FJ Cruiser'],
+    },
+    {
+      id: 4,
       title: 'Adjustable Sway Bar Links',
       description:
         'High-quality adjustable sway bar links with polyurethane bushings. Perfect for lifted vehicles requiring precise alignment.',
-      price: 'KES 18,000',
+      price: 'KES 20,000',
+      priceNote: 'per set',
       image: swayBarLinksImg,
       category: 'Adjustable Links',
       features: [
@@ -69,28 +98,49 @@ const Products = () => {
         'Polyurethane bushings',
         'Easy installation',
       ],
+      compatibility: ['Fortuner', 'Landcruiser Prado 120 & 150 series', '4-Runner', 'FJ Cruiser', 'Fortuner 2016+ model'],
     },
     {
-      id: 4,
-      title: 'CRAGSMAN Coil Springs',
+      id: 5,
+      title: '2-Inch Lifted Coil Springs',
       description:
-        'Premium CRAGSMAN coil springs in signature yellow. Designed for heavy loads and rough terrain with progressive rate technology.',
-      price: 'KES 28,000',
+        'Premium CRAGSMAN coil springs in signature yellow. Designed for heavy loads and rough terrain with progressive rate technology. Provides 2-inch lift.',
+      price: 'KES 7,000',
+      priceNote: 'each',
       image: coilSpringsImg,
       category: 'Springs',
       features: [
         'Progressive spring rate',
+        '2-inch lift height',
         'Heavy-duty construction',
+        'CRAGSMAN quality',
+      ],
+      compatibility: ['Landcruiser Prado 120 & 150 series', '4-Runner', 'FJ Cruiser', 'Fortuner'],
+    },
+    {
+      id: 6,
+      title: 'CRAGSMAN Coil Springs Set',
+      description:
+        'Complete set of CRAGSMAN yellow coil springs for front and rear. Built for African terrain and heavy-duty applications.',
+      price: 'KES 28,000',
+      priceNote: 'per set of 4',
+      image: cragsmanCoilSpringsImg,
+      category: 'Springs',
+      features: [
+        'Complete front & rear set',
+        'Progressive spring rate',
         'Increased load capacity',
         'CRAGSMAN quality',
       ],
+      compatibility: ['Landcruiser Prado 120 & 150 series', '4-Runner', 'FJ Cruiser', 'Fortuner'],
     },
     {
-      id: 5,
+      id: 7,
       title: '4x4 Upper Control Arms Pro',
       description:
         'Professional-grade upper control arms with uniball joint for maximum performance. Perfect for serious off-roaders.',
-      price: 'KES 42,000',
+      price: 'KES 20,000',
+      priceNote: 'per pair',
       image: controlArm2Img,
       category: 'Control Arms',
       features: [
@@ -99,13 +149,15 @@ const Products = () => {
         'Heavy-duty bushings',
         'Track-tested performance',
       ],
+      compatibility: ['Landcruiser Prado 120 & 150 series', '4-Runner'],
     },
     {
-      id: 6,
+      id: 8,
       title: 'Performance End Links',
       description:
         'High-performance adjustable end links with heavy-duty ball joints. Available in various lengths for custom setups.',
       price: 'KES 15,000',
+      priceNote: 'per set',
       image: adjustableLinksImg,
       category: 'Adjustable Links',
       features: [
@@ -116,18 +168,71 @@ const Products = () => {
       ],
     },
     {
-      id: 7,
-      title: 'CRAGSMAN Shock Set (4pc)',
+      id: 9,
+      title: 'Rotora Big Brake Kit (Black)',
       description:
-        'Complete set of 4 CRAGSMAN shock absorbers. Front and rear matched set for balanced performance across all terrains.',
-      price: 'KES 85,000',
-      image: cragsmanSetImg,
-      category: 'Complete Kits',
+        'Premium Rotora big brake kit with black calipers. Complete braking upgrade for enhanced stopping power. Ships from overseas with all costs included.',
+      price: 'From KES 220,000',
+      priceNote: 'depends on car model',
+      image: brakeKitBlackImg,
+      category: 'Brake Kits',
       features: [
-        '4 shocks included',
-        'Front & rear matched set',
-        'CRAGSMAN quality',
-        'Complete hardware kit',
+        'Complete brake kit',
+        'Black powder-coated calipers',
+        'Drilled & slotted rotors',
+        'All hardware included',
+        'Shipping & clearance included',
+      ],
+    },
+    {
+      id: 10,
+      title: 'Brembo Brake Kit (Yellow)',
+      description:
+        'High-performance Brembo brake kit with signature yellow calipers. Ultimate braking performance for demanding applications.',
+      price: 'From KES 220,000',
+      priceNote: 'depends on car model',
+      image: brakeKitYellowImg,
+      category: 'Brake Kits',
+      features: [
+        'Brembo performance',
+        'Yellow calipers',
+        'Race-proven technology',
+        'Complete kit with hardware',
+        'Shipping & clearance included',
+      ],
+    },
+    {
+      id: 11,
+      title: 'Brembo Brake Kit (Blue)',
+      description:
+        'High-performance Brembo brake kit with striking blue calipers. Premium braking solution for enthusiasts.',
+      price: 'From KES 220,000',
+      priceNote: 'depends on car model',
+      image: brakeKitBlueImg,
+      category: 'Brake Kits',
+      features: [
+        'Brembo performance',
+        'Blue calipers',
+        'Race-proven technology',
+        'Complete kit with hardware',
+        'Shipping & clearance included',
+      ],
+    },
+    {
+      id: 12,
+      title: 'Brembo Brake Kit (Red)',
+      description:
+        'High-performance Brembo brake kit with classic red calipers. The iconic choice for performance enthusiasts.',
+      price: 'From KES 220,000',
+      priceNote: 'depends on car model',
+      image: brakeKitRedImg,
+      category: 'Brake Kits',
+      features: [
+        'Brembo performance',
+        'Iconic red calipers',
+        'Race-proven technology',
+        'Complete kit with hardware',
+        'Shipping & clearance included',
       ],
     },
   ];
@@ -145,7 +250,7 @@ const Products = () => {
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-6">
               🇰🇪 Premium Products
             </span>
@@ -171,8 +276,8 @@ const Products = () => {
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeCategory === category
-                    ? 'bg-primary text-primary-foreground shadow-lg'
-                    : 'bg-card text-foreground hover:bg-primary/10'
+                    ? 'bg-primary text-primary-foreground shadow-lg scale-105'
+                    : 'bg-card text-foreground hover:bg-primary/10 hover:scale-105'
                 }`}
               >
                 {category}
@@ -183,7 +288,7 @@ const Products = () => {
           {/* Products Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="card-product group">
+              <div key={product.id} className="card-product group hover:shadow-2xl transition-all duration-300">
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img
                     src={product.image}
@@ -207,7 +312,12 @@ const Products = () => {
                     {product.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-primary">{product.price}</span>
+                    <div>
+                      <span className="text-2xl font-bold text-primary group-hover:scale-110 inline-block transition-transform">{product.price}</span>
+                      {product.priceNote && (
+                        <span className="text-xs text-muted-foreground block">{product.priceNote}</span>
+                      )}
+                    </div>
                     <Link
                       to="/contact"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-primary transition-colors text-sm font-medium"
@@ -253,6 +363,7 @@ const Products = () => {
                 {selectedProduct.title}
               </h2>
               <p className="text-muted-foreground mb-6">{selectedProduct.description}</p>
+              
               <div className="mb-6">
                 <h4 className="font-semibold text-foreground mb-3">Features:</h4>
                 <ul className="space-y-2">
@@ -264,8 +375,30 @@ const Products = () => {
                   ))}
                 </ul>
               </div>
+
+              {selectedProduct.compatibility && selectedProduct.compatibility.length > 0 && (
+                <div className="mb-6 p-4 bg-primary/10 rounded-lg">
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Car size={20} className="text-primary" />
+                    Compatible Vehicles:
+                  </h4>
+                  <ul className="space-y-1">
+                    {selectedProduct.compatibility.map((vehicle, index) => (
+                      <li key={index} className="text-muted-foreground text-sm">
+                        • {vehicle}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="flex items-center justify-between pt-6 border-t">
-                <span className="text-3xl font-bold text-primary">{selectedProduct.price}</span>
+                <div>
+                  <span className="text-3xl font-bold text-primary">{selectedProduct.price}</span>
+                  {selectedProduct.priceNote && (
+                    <span className="text-sm text-muted-foreground block">{selectedProduct.priceNote}</span>
+                  )}
+                </div>
                 <Link
                   to="/contact"
                   className="btn-primary"

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { AlertTriangle, TrendingUp, Wrench, Lightbulb, ChevronRight } from 'lucide-react';
+import mechanicWorkImg from '@/assets/mechanic-work.png';
 
 const Info = () => {
   const topics = [
@@ -14,7 +15,8 @@ A good suspension system:
 • Improves steering response and vehicle control
 • Protects your vehicle's chassis and components
 • Enhances passenger comfort on long journeys`,
-      image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&h=400&fit=crop',
+      mediaType: 'video' as const,
+      mediaSrc: '/videos/Isaac_V1.mp4',
     },
     {
       icon: TrendingUp,
@@ -31,7 +33,8 @@ A good suspension system:
 8. Preparing for serious off-road adventures
 
 For Land Cruiser owners especially, upgrading to a quality suspension system transforms the driving experience both on and off-road.`,
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop',
+      mediaType: 'video' as const,
+      mediaSrc: '/videos/Isaac_V2.mp4',
     },
     {
       icon: Wrench,
@@ -49,7 +52,8 @@ Damaged Shocks: Worn shocks fail to control spring oscillation, causing bouncy r
 Alignment Issues: Poor alignment accelerates tire wear and affects handling.
 
 If you notice any of these issues, visit ProDrive Suspension for a professional inspection.`,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
+      mediaType: 'image' as const,
+      mediaSrc: mechanicWorkImg,
     },
   ];
 
@@ -85,7 +89,7 @@ If you notice any of these issues, visit ProDrive Suspension for a professional 
       {/* Hero Section */}
       <section className="relative py-32 bg-secondary">
         <div className="container-custom">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-6">
               🇰🇪 Knowledge Center
             </span>
@@ -123,11 +127,22 @@ If you notice any of these issues, visit ProDrive Suspension for a professional 
                   </div>
                 </div>
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <img
-                    src={topic.image}
-                    alt={topic.title}
-                    className="rounded-2xl shadow-xl w-full"
-                  />
+                  {topic.mediaType === 'video' ? (
+                    <video
+                      src={topic.mediaSrc}
+                      controls
+                      className="rounded-2xl shadow-xl w-full hover:shadow-2xl transition-shadow duration-300"
+                      preload="metadata"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <img
+                      src={topic.mediaSrc}
+                      alt={topic.title}
+                      className="rounded-2xl shadow-xl w-full hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+                    />
+                  )}
                 </div>
               </div>
             ))}
@@ -154,7 +169,7 @@ If you notice any of these issues, visit ProDrive Suspension for a professional 
             {tips.map((tip, index) => (
               <div
                 key={tip.title}
-                className="bg-background p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                className="bg-background p-6 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-10 h-10 bg-primary text-primary-foreground rounded-lg flex items-center justify-center font-bold">
@@ -195,7 +210,7 @@ If you notice any of these issues, visit ProDrive Suspension for a professional 
                 <img
                   src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop"
                   alt="4x4 vehicle"
-                  className="rounded-xl shadow-lg"
+                  className="rounded-xl shadow-lg hover:scale-[1.02] transition-transform duration-300"
                 />
               </div>
             </div>
