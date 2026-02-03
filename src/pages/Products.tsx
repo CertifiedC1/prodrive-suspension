@@ -8,7 +8,6 @@ import controlArm2Img from '@/assets/products/control-arm-2.jpg';
 import swayBarLinksImg from '@/assets/products/sway-bar-links.jpg';
 import cragsmanShocksImg from '@/assets/products/cragsman-shocks.jpg';
 import coilSpringsImg from '@/assets/products/coil-springs.jpg';
-import adjustableLinksImg from '@/assets/products/adjustable-links.jpg';
 import cragsmanSetImg from '@/assets/products/cragsman-set.jpg';
 import brakeKitBlackImg from '@/assets/products/brake-kit-black.png';
 import brakeKitYellowImg from '@/assets/products/brake-kit-yellow.png';
@@ -153,22 +152,6 @@ const Products = () => {
     },
     {
       id: 8,
-      title: 'Performance End Links',
-      description:
-        'High-performance adjustable end links with heavy-duty ball joints. Available in various lengths for custom setups.',
-      price: 'KES 15,000',
-      priceNote: 'per set',
-      image: adjustableLinksImg,
-      category: 'Adjustable Links',
-      features: [
-        'Precision ball joints',
-        'Adjustable length',
-        'Heavy-duty construction',
-        'Multiple color options',
-      ],
-    },
-    {
-      id: 9,
       title: 'Rotora Big Brake Kit (Black)',
       description:
         'Premium Rotora big brake kit with black calipers. Complete braking upgrade for enhanced stopping power. Ships from overseas with all costs included.',
@@ -185,7 +168,7 @@ const Products = () => {
       ],
     },
     {
-      id: 10,
+      id: 9,
       title: 'Brembo Brake Kit (Yellow)',
       description:
         'High-performance Brembo brake kit with signature yellow calipers. Ultimate braking performance for demanding applications.',
@@ -202,7 +185,7 @@ const Products = () => {
       ],
     },
     {
-      id: 11,
+      id: 10,
       title: 'Brembo Brake Kit (Blue)',
       description:
         'High-performance Brembo brake kit with striking blue calipers. Premium braking solution for enthusiasts.',
@@ -219,7 +202,7 @@ const Products = () => {
       ],
     },
     {
-      id: 12,
+      id: 11,
       title: 'Brembo Brake Kit (Red)',
       description:
         'High-performance Brembo brake kit with classic red calipers. The iconic choice for performance enthusiasts.',

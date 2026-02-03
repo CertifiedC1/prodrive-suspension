@@ -144,7 +144,7 @@ const Footer = () => {
               © {currentYear} ProDrive Suspension. All rights reserved.
             </p>
             <p className="text-secondary-foreground/50 text-sm">
-              Designed by <span className="text-primary font-medium">ELIUD NDUNG'U</span>
+              Designed by <span className="text-primary font-medium">Certified.C Networks</span>
             </p>
           </div>
         </div>
