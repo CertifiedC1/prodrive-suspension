@@ -44,7 +44,6 @@ const AutoPlayVideo = ({ src, className = '' }: AutoPlayVideoProps) => {
     <video
       ref={videoRef}
       src={src}
-      muted
       loop
       playsInline
       controls
