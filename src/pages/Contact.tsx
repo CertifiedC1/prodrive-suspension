@@ -36,11 +36,16 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>;
 
+const RATE_LIMIT_KEY = 'prodrive_contact_submissions';
+const RATE_LIMIT_MAX = 3; // Max submissions
+const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
+
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
+  const [honeypot, setHoneypot] = useState(''); // Spam protection
   const [formData, setFormData] = useState<ContactForm>({
     name: '',
     email: '',
@@ -48,6 +53,31 @@ const Contact = () => {
     subject: '',
     message: '',
   });
+
+  // Rate limiting check
+  const checkRateLimit = (): boolean => {
+    const now = Date.now();
+    const storedData = localStorage.getItem(RATE_LIMIT_KEY);
+    
+    if (!storedData) {
+      return true;
+    }
+    
+    const submissions: number[] = JSON.parse(storedData);
+    const recentSubmissions = submissions.filter(time => now - time < RATE_LIMIT_WINDOW);
+    
+    return recentSubmissions.length < RATE_LIMIT_MAX;
+  };
+
+  // Record submission for rate limiting
+  const recordSubmission = () => {
+    const now = Date.now();
+    const storedData = localStorage.getItem(RATE_LIMIT_KEY);
+    const submissions: number[] = storedData ? JSON.parse(storedData) : [];
+    const recentSubmissions = submissions.filter(time => now - time < RATE_LIMIT_WINDOW);
+    recentSubmissions.push(now);
+    localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(recentSubmissions));
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -63,6 +93,27 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrors({});
+
+    // Honeypot check - if filled, it's likely a bot
+    if (honeypot) {
+      setIsSubmitting(false);
+      toast({
+        title: 'Message Sent!',
+        description: 'Thank you for contacting ProDrive Suspension.',
+      });
+      return;
+    }
+
+    // Rate limit check
+    if (!checkRateLimit()) {
+      setIsSubmitting(false);
+      toast({
+        title: 'Too Many Requests',
+        description: 'Please wait before submitting another message.',
+        variant: 'destructive',
+      });
+      return;
+    }
 
     const result = contactSchema.safeParse(formData);
 
@@ -83,13 +134,30 @@ const Contact = () => {
       return;
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Record submission for rate limiting
+    recordSubmission();
+
+    // Build mailto URL with form data
+    const emailBody = `
+Full Name: ${formData.name}
+Email Address: ${formData.email}
+Phone Number: ${formData.phone || 'Not provided'}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+    `.trim();
+
+    const mailtoUrl = `mailto:isaacirungu48@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
 
     setIsSubmitting(false);
     setIsSubmitted(true);
     toast({
-      title: 'Message Sent!',
-      description: 'Thank you for contacting ProDrive Suspension. We will get back to you soon.',
+      title: 'Email Client Opened!',
+      description: 'Please send the email from your email client to complete your message.',
     });
 
     setTimeout(() => {
@@ -168,7 +236,20 @@ const Contact = () => {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot field - hidden from users, catches bots */}
+                  <div className="absolute -left-[9999px]" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
