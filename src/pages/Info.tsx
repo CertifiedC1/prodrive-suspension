@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { AlertTriangle, TrendingUp, Wrench, Lightbulb, ChevronRight } from 'lucide-react';
+import AutoPlayVideo from '@/components/AutoPlayVideo';
 import mechanicWorkImg from '@/assets/mechanic-work.png';
+import questionsImg from '@/assets/questions-image.png';
 
 const Info = () => {
   const topics = [
@@ -128,14 +130,10 @@ If you notice any of these issues, visit ProDrive Suspension for a professional 
                 </div>
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   {topic.mediaType === 'video' ? (
-                    <video
+                    <AutoPlayVideo
                       src={topic.mediaSrc}
-                      controls
                       className="rounded-2xl shadow-xl w-full hover:shadow-2xl transition-shadow duration-300"
-                      preload="metadata"
-                    >
-                      Your browser does not support the video tag.
-                    </video>
+                    />
                   ) : (
                     <img
                       src={topic.mediaSrc}
@@ -208,7 +206,7 @@ If you notice any of these issues, visit ProDrive Suspension for a professional 
               </div>
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop"
+                  src={questionsImg}
                   alt="4x4 vehicle"
                   className="rounded-xl shadow-lg hover:scale-[1.02] transition-transform duration-300"
                 />
