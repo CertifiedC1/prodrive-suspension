@@ -44,6 +44,40 @@ const About = () => {
         </div>
       </section>
 
+      {/* Founder Section - Moved to top */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+              Leadership
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4">
+              Meet the Founder 🇰🇪
+            </h2>
+          </div>
+
+          <div className="max-w-lg mx-auto">
+            <div className="bg-card rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-border">
+              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-primary/30">
+                <img 
+                  src={isaacProfileImg} 
+                  alt="Isaac Irungu - Founder & CEO" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground">Isaac Irungu</h3>
+              <p className="text-primary font-medium mb-4">Founder & CEO</p>
+              <p className="text-muted-foreground">
+                Passionate about 4x4 vehicles and African off-road adventures for years. 
+                Isaac founded ProDrive Suspension to bring quality suspension solutions to Kenya's 
+                Land Cruiser and 4x4 community. His hands-on experience and dedication to customer 
+                satisfaction have made ProDrive a trusted name in the industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Story Section */}
       <section className="section-padding">
         <div className="container-custom">
@@ -152,39 +186,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder Section */}
-      <section className="section-padding bg-secondary">
-        <div className="container-custom">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-              Leadership
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mt-4">
-              Meet the Founder 🇰🇪
-            </h2>
-          </div>
-
-          <div className="max-w-lg mx-auto">
-            <div className="bg-secondary-foreground/5 rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300">
-              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-primary/30">
-                <img 
-                  src={isaacProfileImg} 
-                  alt="Isaac Irungu - Founder & CEO" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-secondary-foreground">Isaac Irungu</h3>
-              <p className="text-primary font-medium mb-4">Founder & CEO</p>
-              <p className="text-muted-foreground">
-                Passionate about 4x4 vehicles and African off-road adventures for years. 
-                Isaac founded ProDrive Suspension to bring quality suspension solutions to Kenya's 
-                Land Cruiser and 4x4 community. His hands-on experience and dedication to customer 
-                satisfaction have made ProDrive a trusted name in the industry.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
